@@ -1,18 +1,15 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
-const User = (users) => {
+const User = () => {
+
+    const {userId} = useParams()
+
     return (
         <div>
-            <h1>User</h1>
+            <h1>User: {userId}</h1>
 
-            {/* User component navigation */}
-            <nav>
-                <Link to="profile">Profile</Link>
-                <Link to="account">Account</Link>
-            </nav>
-
-            <Outlet />
+            <Link to="/users" >Back to users</Link>
         </div>
     )
 }

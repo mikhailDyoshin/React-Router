@@ -5,8 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home"
 import User from "./User"
 import NoMatch from "./NoMatch"
-import Profile from "./Profile"
-import Account from "./Account"
+import Users from "./Users"
 
 
 const App = () => {
@@ -30,18 +29,16 @@ const App = () => {
                 {/* App's navigation */}
                 <nav>
                     <Link to="/home">Home</Link>
-                    <Link to="/user">User</Link>
+                    <Link to="/users">User</Link>
                 </nav>
 
                 <Routes>
                     <Route index element={<Home />}/>
                     <Route path="home" element={<Home />}/>
-                    <Route path="user" element={<User users={users}/>} >
-                        <Route index element={<Profile />} />
-                        <Route path="profile" element={<Profile />} />
-                        <Route path="account" element={<Account />} />
-                        <Route path="*" element={<NoMatch />} />
+                    <Route path="users" element={<Users users={users}/>} >
+                        <Route path=":userId" element={<User />} />
                     </Route>
+                    <Route path="*" element={<NoMatch />} />
                     <Route path="*" element={<NoMatch />} />
                 </Routes>
             </div>
