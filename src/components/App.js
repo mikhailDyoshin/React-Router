@@ -7,6 +7,9 @@ import User from "./User"
 import NoMatch from "./NoMatch"
 import Users from "./Users"
 
+// Import styles
+import "./App.scss"
+
 
 const App = () => {
 
@@ -24,23 +27,26 @@ const App = () => {
     return (
         <BrowserRouter>
             <div>
-                <h1>React Router</h1>
+                <h1 className="main_header">React Router</h1>
 
                 {/* App's navigation */}
-                <nav>
+                <nav className="main_nav">
                     <Link to="/home">Home</Link>
                     <Link to="/users">User</Link>
                 </nav>
 
-                <Routes>
-                    <Route index element={<Home />}/>
-                    <Route path="home" element={<Home />}/>
-                    <Route path="users" element={<Users users={users}/>} >
-                        <Route path=":userId" element={<User />} />
-                    </Route>
-                    <Route path="*" element={<NoMatch />} />
-                    <Route path="*" element={<NoMatch />} />
-                </Routes>
+                <div className="container">
+                    <Routes>
+                        <Route index element={<Home />}/>
+                        <Route path="home" element={<Home />}/>
+                        <Route path="users" element={<Users users={users}/>} >
+                            <Route path=":userId" element={<User />} />
+                        </Route>
+                        <Route path="*" element={<NoMatch />} />
+                        <Route path="*" element={<NoMatch />} />
+                    </Routes>
+                </div>
+
             </div>
         </BrowserRouter>
     )
